@@ -13,6 +13,27 @@
 
 .search {
   position: relative;
+  width: 50rem;
+  background-color: #dfdfdf;
+  box-shadow: 0 0 1.5rem 0.6rem #00000026;
+  border-radius: 1.6rem;
+  transition: var(--transition);
+  border: 0.2rem solid #dfdfdf;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search:hover {
+  width: 63.4rem;
+  justify-content: space-between;
+}
+
+.search:focus-within {
+  border: 0.2rem solid #5a5ab8;
+  width: 63.4rem;
+  justify-content: space-between;
 }
 
 /* ******************** */
@@ -25,8 +46,8 @@
   pointer-events: none;
 
   position: absolute;
-  top: 2.5rem;
-  left: 2.5rem;
+  top: 3rem;
+  left: 3.2rem;
   z-index: 1;
 }
 
@@ -55,38 +76,68 @@
 /* SEARCH-INPUT-FIELD */
 .input {
   padding: 2.2rem 2.2rem 2.2rem 6rem;
-  width: 60rem;
+  width: 100%;
   border: 0.2rem solid #dfdfdf;
   border-radius: 1.6rem;
   background-color: #dfdfdf;
   font-size: 2rem;
   font-family: var(--secondary-font);
   color: #000000;
-  box-shadow: 0 0 1.5rem 0.6rem #00000026;
   transition: var(--transition);
+  overflow: scroll;
+}
+
+.input:hover {
+  width: 120%;
 }
 
 /* SEARCH-INPUT-FIELD:FOCUS */
-.input:focus {
-  border: 0.2rem solid #5a5ab8;
-}
-
 .input:focus+.label {
   background-color: #dfdfdf;
   font-size: 1.6rem;
   color: #5a5ab8;
   border: 0.2rem solid #5a5ab8;
-  top: -12px;
+  top: -1.8rem;
+}
+
+/* SEARCH-INPUT-FIELD:INVALID */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(10px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  75% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.search.invalid {
+  animation: shake 0.3s ease-in-out;
+  border: 0.2rem solid red;
+}
+
+.search.invalid .input:focus+.label {
+  color: red;
+  border: 0.2rem solid red;
 }
 
 /* ******************** */
 /* SEARCH-BUTTON */
 /* ******************** */
-.button {
-  position: relative;
-}
-
-.button button {
+button {
+  margin: 1rem;
   padding: 2rem;
   width: 15rem;
   border: none;
@@ -97,13 +148,9 @@
   color: #ffffff;
   transition: var(--transition);
   cursor: pointer;
-
-  position: absolute;
-  top: -3.2rem;
-  left: -16.8rem;
 }
 
-.button button:hover {
+button:hover {
   background-color: #484893;
   box-shadow: 0 0 1.5rem 0.6rem rgba(0, 0, 0, 0.1);
 }
