@@ -9,6 +9,14 @@ const Body = () => {
     setPokemonName(e.target.value);
   };
 
+  const searchPokemon = () => {
+    Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then(
+      (response) => {
+        console.log(response);
+      }
+    );
+  };
+
   return (
     <>
       <div>
@@ -19,7 +27,7 @@ const Body = () => {
             onChange={handleChange}
           />
 
-          <button>Search Pokemon</button>
+          <button onClick={searchPokemon}>Search Pokemon</button>
         </div>
 
         <div className={BodyCss.content}>
