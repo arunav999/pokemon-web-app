@@ -1,3 +1,46 @@
-.color {
-  color: blueviolet;
+.input {
+  padding: 8.2rem;
+  background-color: #7b6252;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+}
+
+.input input {
+  border: none;
+  outline: none;
+  padding: 1.2rem;
+  width: 30%;
+  font-family: var(--primary-font);
+}
+
+.input input:focus{
+  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.input button {
+  padding: 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: var(--primary-font);
+  background-color: #cdcdd5;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+}
+
+.input button:hover {
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.input button:active{
+  box-shadow: none;
+}
+
+.content{
+  font-size: 1.8rem;
 }
