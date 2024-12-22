@@ -88,6 +88,7 @@ import SearchBoxCss from "./SearchBox.module.css";
 
 const SearchBox = () => {
   const [isInvalid, setIsInvalid] = useState(false);
+  const [inputValue, setInputValue] = useState("");
 
   const handleChange = (event) => {
     const value = event.target.value.trim();
@@ -99,6 +100,16 @@ const SearchBox = () => {
       setIsInvalid(true);
     } else {
       setIsInvalid(false);
+    }
+
+    setInputValue(value);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      setIsInvalid(false);
+      setInputValue("");
+      event.target.blur();
     }
   };
 
@@ -120,8 +131,10 @@ const SearchBox = () => {
           <div className={SearchBoxCss.inputGroup}>
             <input
               type="text"
+              value={inputValue}
               className={SearchBoxCss.input}
               onChange={handleChange}
+              onKeyDown={handleKeyDown}
             />
             <label className={SearchBoxCss.label}>Enter Pokemon Name</label>
           </div>
