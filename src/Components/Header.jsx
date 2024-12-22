@@ -1,8 +1,15 @@
 import React from "react";
 import HeaderCSS from "./Header.module.css";
+import pokeLogo from "../img/International_Pokémon_logo.svg.png";
 
 const Header = () => {
-  return <h2 className={HeaderCSS.color}>I am a header</h2>;
+  return (
+    <>
+      <div className={HeaderCSS.headerStyle}>
+        <img src={pokeLogo} alt="Pokemon Logo" className={HeaderCSS.logo}/>
+      </div>
+    </>
+  );
 };
 
 export default Header;

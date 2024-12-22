@@ -3,3 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --primary-font: Arial;
+}
+
+html {
+  font-size: 62.5%;
+}
