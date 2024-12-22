@@ -4,18 +4,47 @@ import BodyCss from "./Body.module.css";
 
 const Body = () => {
   const [pokemonName, setPokemonName] = useState("");
+  const [choosePokemon, setChoosePokemon] = useState(false);
+  const [pokemonData, setPokemonData] = useState({
+    name: "",
+    species: "",
+    image: "",
+    hp: "",
+    attack: "",
+    defense: "",
+    specailAttack: "",
+    specailDefense: "",
+    speed: "",
+    type: "",
+  });
 
   const handleChange = (e) => {
-    setPokemonName(e.target.value);
+    const setValue = e.target.value.toLowerCase().replace(/\s/g, "");
+    setPokemonName(setValue);
   };
 
   const searchPokemon = () => {
     Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`).then(
       (response) => {
+        setPokemonData({
+          name: pokemonName,
+          species: response.data.species.name,
+          image: response.data.sprites.other.dream_world.front_default,
+          hp: response.data.stats[0].base_stat,
+          attack: response.data.stats[1].base_stat,
+          defense: response.data.stats[2].base_stat,
+          specailAttack: response.data.stats[3].base_stat,
+          specailDefense: response.data.stats[4].base_stat,
+          speed: response.data.stats[5].base_stat,
+          type: response.data.types[0].type.name,
+        });
+        setChoosePokemon(true);
         console.log(response);
       }
     );
   };
+  
+  
 
   return (
     <>
@@ -31,7 +60,21 @@ const Body = () => {
         </div>
 
         <div className={BodyCss.content}>
-          <p>{pokemonName}</p>
+          {!choosePokemon ? (
+            <h2>Choose a Pokemon</h2>
+          ) : (
+            <>
+              <h2>{pokemonData.name}</h2>
+              <img src={pokemonData.image} alt={`${pokemonData.name} logo`} />
+              <p>HP: {pokemonData.hp}</p>
+              <p>Attack: {pokemonData.attack}</p>
+              <p>Defence: {pokemonData.defense}</p>
+              <p>Special Attack: {pokemonData.specailAttack}</p>
+              <p>Special Defence: {pokemonData.specailDefense}</p>
+              <p>Speed: {pokemonData.speed}</p>
+              <p>Type: {pokemonData.type}</p>
+            </>
+          )}
         </div>
       </div>
     </>

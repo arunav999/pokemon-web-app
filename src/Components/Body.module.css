@@ -17,8 +17,8 @@
   font-family: var(--primary-font);
 }
 
-.input input:focus{
-  box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.75);
+.input input:focus {
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .input button {
@@ -34,13 +34,28 @@
 }
 
 .input button:hover {
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.input button:active{
+.input button:active {
   box-shadow: none;
 }
 
-.content{
+.content {
+  padding: 2.2rem;
+  background-color: #747499;
   font-size: 1.8rem;
+  font-family: var(--primary-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.2rem;
+  text-transform: capitalize;
+}
+
+.content img{
+  height: 25.4rem;
+  width: 25.4rem;
+
+  object-fit: contain;
 }
