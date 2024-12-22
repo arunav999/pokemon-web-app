@@ -41,6 +41,7 @@ const Body = () => {
         type: response.data.types[0].type.name,
       });
       setChoosePokemon(true);
+      console.log(response);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         alert("Pokémon not found. Please check the name and try again.");
