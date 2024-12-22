@@ -19,30 +19,90 @@
   height: 2.2rem;
   width: 2.2rem;
   fill: #838181;
-  
-  position: relative;
+
+  position: absolute;
   top: 0.3rem;
   right: -5rem;
 }
 
 /* ******************** */
-/* SEARCH-INPUT-FIELD */
+/* SEARCH-INPUT-GROUP */
 /* ******************** */
-.input {
-  padding: 1.8rem 2.2rem 1.8rem 6rem;
-  border: none;
-  outline: none;
-  border-radius: 1.6rem;
-  width: 40rem;
-  background-color: #dfdfdf;
-  font-size: 2rem;
-  color: #b2b0b0;
+.inputGroup {
+  position: relative;
 }
 
-.input::placeholder {
+/* SEARCH-INPUT-LABEL */
+.label {
+  padding: 0 0.6rem;
   font-size: 2rem;
+  font-family: var(--secondary-font);
+  color: #838181;
+  border: 0.2rem solid #dfdfdf;
+  transition: var(--transition);
+  pointer-events: none;
+
+  position: absolute;
+  top: 2rem;
+  left: 7rem;
+}
+
+/* SEARCH-INPUT-FIELD */
+.input {
+  padding: 2.2rem 2.2rem 2.2rem 6rem;
+  width: 60rem;
+  border: 0.2rem solid #dfdfdf;
+  outline: none;
+  border-radius: 1.6rem;
+  background-color: #dfdfdf;
+  font-size: 2rem;
+  font-family: var(--secondary-font);
+  color: #000000;
+  box-shadow: 0 0 1.5rem 0.6rem #00000026;
+  transition: var(--transition);
+}
+
+/* SEARCH-INPUT-FIELD:FOCUS */
+.input:focus {
+  border: 0.2rem solid #5a5ab8;
+}
+
+.input:focus+.label {
+  background-color: #dfdfdf;
+  font-size: 1.6rem;
+  color: #5a5ab8;
+  border: 0.2rem solid #5a5ab8;
+  top: -12px;
 }
 
 /* ******************** */
 /* SEARCH-BUTTON */
 /* ******************** */
+.button {
+  position: relative;
+}
+
+.button button {
+  padding: 1.2rem;
+  width: 15rem;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  font-size: 2rem;
+  background-color: #5a5ab8;
+  color: #ffffff;
+  transition: var(--transition);
+  cursor: pointer;
+
+  position: absolute;
+  top: -2.4rem;
+  left: -16.8rem;
+}
+
+.button button:hover {
+  background-color: #484893;
+}
+
+.button button:focus {
+  outline: 0.1rem solid #000;
+}
