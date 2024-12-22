@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import BodyCss from "./Body.module.css";
+import BodyCss from "./SearchBox.module.css";
 
 // const Body = () => {
 //   const [pokemonName, setPokemonName] = useState("");
@@ -87,11 +87,11 @@ import BodyCss from "./Body.module.css";
 // };
 
 const SearchBox = () => {
-  return(
+  return (
     <>
-    
+      <div></div>
     </>
   );
-}
+};
 
 export default SearchBox;
