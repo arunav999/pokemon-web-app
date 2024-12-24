@@ -1,7 +1,14 @@
 import React from "react";
 import SearchBoxCss from "./SearchBox.module.css";
 
-const SearchBox = ({ state, onChange, onEscape, onSearch, disabled }) => {
+const SearchBox = ({
+  state,
+  onChange,
+  onEscape,
+  onSearch,
+  disabled,
+  onEnter,
+}) => {
   const { inputValue, isInvalid, error } = state;
 
   return (
@@ -26,6 +33,7 @@ const SearchBox = ({ state, onChange, onEscape, onSearch, disabled }) => {
               className={SearchBoxCss.input}
               onChange={onChange}
               onKeyDown={onEscape}
+              onKeyUp={onEnter}
               placeholder="if empty will not work"
             />
             <label className={SearchBoxCss.label}>

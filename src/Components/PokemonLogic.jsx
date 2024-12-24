@@ -59,6 +59,9 @@ const PokemonLogic = () => {
           (!isInvalid && pokeId) || pokeName
         }`
       );
+      setState({
+        inputValue: "",
+      });
       console.log(response);
     } catch (error) {
       if (error.response && error.response.status === 404) {
@@ -66,6 +69,13 @@ const PokemonLogic = () => {
       } else {
         alert("An unexpected error occured. Please try again later.");
       }
+    }
+  };
+
+  const handleKeyDownEnter = (event) => {
+    if (event.key === "Enter") {
+      searchPokemon();
+      event.target.blur();
     }
   };
 
@@ -78,6 +88,7 @@ const PokemonLogic = () => {
         onEscape={handleKeyDownEscape}
         onSearch={searchPokemon}
         disabled={isInvalid || error}
+        onEnter={handleKeyDownEnter}
       />
       <PokemonCard state={state} />
     </>
