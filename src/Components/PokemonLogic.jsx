@@ -9,22 +9,40 @@ const PokemonLogic = () => {
     isInvalid: false,
     pokeId: "",
     pokeName: "",
+    error: "",
   });
 
   const handleChange = (event) => {
     const value = event.target.value;
-    const pattern = /^[A-Za-z0-9 ]+$/;
-    const setId = parseInt(event.target.value);
-    const setName = event.target.value.toLowerCase().replace(/\s/g, "");
+    const pattern = /^([a-zA-Z ]+|[0-9]+)$/;
+    const setId = parseInt(event.target.value, 10);
+    const setName = value.toLowerCase().replace(/\s/g, "");
 
-    setState({
+    let errorMessage = "";
+
+    if (!value) {
+      errorMessage = "";
+    } else if (/[^a-zA-Z0-9 ]/.test(value)) {
+      errorMessage = "Special characters and symbols are not allowed.";
+    } else if (!pattern.test(value)) {
+      errorMessage = "Input should only be letters and numbers, not both.";
+    }
+
+    setState((prevState) => ({
+      ...prevState,
       inputValue: value,
       isInvalid: value !== "" && !pattern.test(value),
       pokeId: setId,
       pokeName: setName,
-    });
+      error: errorMessage,
+    }));
 
-    console.log(typeof setId);
+    // setState({
+    //   inputValue: value,
+    //   isInvalid: value !== "" && !pattern.test(value),
+    //   pokeId: setId,
+    //   pokeName: setName,
+    // });
   };
 
   const handleKeyDownEscape = (event) => {

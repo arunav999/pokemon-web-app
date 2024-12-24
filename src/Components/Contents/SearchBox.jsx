@@ -2,7 +2,7 @@ import React from "react";
 import SearchBoxCss from "./SearchBox.module.css";
 
 const SearchBox = ({ state, onChange, onEscape }) => {
-  const { inputValue, isInvalid } = state;
+  const { inputValue, isInvalid, error } = state;
 
   return (
     <>
@@ -31,9 +31,7 @@ const SearchBox = ({ state, onChange, onEscape }) => {
             <label className={SearchBoxCss.label}>
               Enter Pokemon Name or Id
             </label>
-            <p className={SearchBoxCss.error}>
-              {isInvalid && "Don't use special characters or symbols"}
-            </p>
+            {error && <p className={SearchBoxCss.error}>&#x2718; {error}</p>}
           </div>
 
           <button className={SearchBoxCss}>Search</button>

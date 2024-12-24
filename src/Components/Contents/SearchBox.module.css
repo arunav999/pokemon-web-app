@@ -159,6 +159,7 @@
 /* INPUT-INVALID ERROR_MESSAGE */
 .error {
   position: absolute;
+  width: 100%;
   font-family: var(--primary-font);
   font-size: 1.4rem;
   color: #ff0000;
