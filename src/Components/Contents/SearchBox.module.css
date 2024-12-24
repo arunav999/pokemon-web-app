@@ -13,12 +13,12 @@
 
 .search {
   position: relative;
-  width: 50rem;
+  width: 55rem;
   background-color: #dfdfdf;
   box-shadow: 0 0 1.5rem 0.6rem #00000026;
   border-radius: 1.6rem;
   transition: var(--transition);
-  border: 0.2rem solid #dfdfdf;
+  border: 0.2rem solid #b2b2b2;
 
   display: flex;
   align-items: center;
@@ -26,13 +26,13 @@
 }
 
 .search:hover {
-  width: 63.4rem;
+  width: 65.4rem;
   justify-content: space-between;
 }
 
 .search:focus-within {
   border: 0.2rem solid #5a5ab8;
-  width: 63.4rem;
+  width: 65.4rem;
   justify-content: space-between;
 }
 
@@ -65,6 +65,7 @@
   font-family: var(--secondary-font);
   color: #838181;
   border: 0.2rem solid #dfdfdf;
+  border-radius: 10px;
   transition: var(--transition);
   pointer-events: none;
 
@@ -100,6 +101,27 @@
   top: -1.8rem;
 }
 
+/* INPUT-FILED NOT_EMPTY */
+.search:has(.inputGroup .input:not(:placeholder-shown)) {
+  width: 65.4rem;
+}
+
+.inputGroup .input:not(:placeholder-shown) {
+  width: 120%;
+}
+
+.inputGroup .input:focus+.label,
+.inputGroup .input:not(:placeholder-shown)+.label {
+  background-color: #dfdfdf;
+  font-size: 1.6rem;
+  color: #5a5ab8;
+  top: -1.8rem;
+}
+
+.inputGroup .input::placeholder {
+  color: transparent;
+}
+
 /* SEARCH-INPUT-FIELD:INVALID */
 @keyframes shake {
   0% {
@@ -125,12 +147,23 @@
 
 .search.invalid {
   animation: shake 0.3s ease-in-out;
-  border: 0.2rem solid red;
+  border: 0.2rem solid #ff0000;
 }
 
 .search.invalid .input:focus+.label {
-  color: red;
-  border: 0.2rem solid red;
+  color: #ff0000;
+  border: 0.2rem solid #ff0000;
+}
+
+/* INPUT-INVALID ERROR_MESSAGE */
+.error {
+  position: absolute;
+  font-family: var(--primary-font);
+  font-size: 1.4rem;
+  color: #ff0000;
+  font-weight: 600;
+  bottom: -4rem;
+  left: 5rem;
 }
 
 /* ******************** */

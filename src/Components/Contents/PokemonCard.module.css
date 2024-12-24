@@ -2,6 +2,7 @@
 /* CONTAINER-CARD */
 /* ******************** */
 .container {
+  padding: 1.8rem;
   background-color: #faebd7;
   font-size: 1.8rem;
 
@@ -14,12 +15,42 @@
 /* ******************** */
 .card {
   padding: 2.6rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 
 /* ******************** */
 /* CARD-IMAGE */
 /* ******************** */
-.img {
+.imgContain {
   height: 30.4rem;
   width: 40.4rem;
+}
+
+.img {
+  height: 100%;
+  width: 100%;
+}
+
+/* ******************** */
+/* CARD-CONTENT */
+/* ******************** */
+.content {
+  padding: 0.6rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* ******************** */
+/* CARD-TYPE */
+/* ******************** */
+.type{
+  padding: 0.2rem;
+
+  display: flex;
+  gap: 2.2rem;
 }

@@ -1,7 +1,9 @@
 import React from "react";
 import PokeCard from "./PokemonCard.module.css";
 
-const PokemonCard = () => {
+const PokemonCard = ({ state }) => {
+  const { pokeName } = state;
+
   return (
     <>
       <div className={PokeCard.container}>
@@ -12,7 +14,7 @@ const PokemonCard = () => {
 
           <div className={PokeCard.content}>
             <p>ID</p>
-            <p>Pokemon Name</p>
+            <p>{pokeName}</p>
             <div className={PokeCard.type}>
               <p>type 1</p>
               <p>type 2</p>

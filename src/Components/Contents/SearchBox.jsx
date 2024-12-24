@@ -26,8 +26,12 @@ const SearchBox = ({ state, onChange, onEscape }) => {
               className={SearchBoxCss.input}
               onChange={onChange}
               onKeyDown={onEscape}
+              placeholder="if empty will not work"
             />
-            <label className={SearchBoxCss.label}>Enter Pokemon Name</label>
+            <label className={SearchBoxCss.label}>
+              Enter Pokemon Name or Id
+            </label>
+            <p className={SearchBoxCss.error}><span>&#x2718;</span> Error Message</p>
           </div>
 
           <button className={SearchBoxCss}>Search</button>
