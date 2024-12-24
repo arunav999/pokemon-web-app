@@ -87,28 +87,27 @@ import SearchBoxCss from "./SearchBox.module.css";
 // };
 
 const SearchBox = () => {
-  const [isInvalid, setIsInvalid] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [state, setState] = useState({
+    inputValue: "",
+    isInvalid: false,
+  });
 
   const handleChange = (event) => {
     const value = event.target.value.trim();
     const pattern = /^[A-Za-z0-9 ]+$/;
 
-    if (value === "") {
-      setIsInvalid(false);
-    } else if (!pattern.test(event.target.value)) {
-      setIsInvalid(true);
-    } else {
-      setIsInvalid(false);
-    }
-
-    setInputValue(value);
+    setState({
+      inputValue: value,
+      isInvalid: value !== "" && !pattern.test(value),
+    });
   };
 
   const handleKeyDown = (event) => {
     if (event.key === "Escape") {
-      setIsInvalid(false);
-      setInputValue("");
+      setState({
+        inputValue: "",
+        isInvalid: false,
+      });
       event.target.blur();
     }
   };
@@ -118,7 +117,7 @@ const SearchBox = () => {
       <div className={SearchBoxCss.body}>
         <div
           className={`${SearchBoxCss.search} ${
-            isInvalid ? SearchBoxCss.invalid : ""
+            state.isInvalid ? SearchBoxCss.invalid : ""
           }`}
         >
           <svg
@@ -131,7 +130,7 @@ const SearchBox = () => {
           <div className={SearchBoxCss.inputGroup}>
             <input
               type="text"
-              value={inputValue}
+              value={state.inputValue}
               className={SearchBoxCss.input}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
