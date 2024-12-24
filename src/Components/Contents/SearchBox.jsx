@@ -31,7 +31,9 @@ const SearchBox = ({ state, onChange, onEscape }) => {
             <label className={SearchBoxCss.label}>
               Enter Pokemon Name or Id
             </label>
-            <p className={SearchBoxCss.error}><span>&#x2718;</span> Error Message</p>
+            <p className={SearchBoxCss.error}>
+              {isInvalid && "Don't use special characters or symbols"}
+            </p>
           </div>
 
           <button className={SearchBoxCss}>Search</button>
