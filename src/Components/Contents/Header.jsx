@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderCSS from "./Header.module.css";
-import pokeLogo from "../img/International_Pokémon_logo.svg.png";
+import pokeLogo from "../../img/International_Pokémon_logo.svg.png";
 
 const Header = () => {
   return (
