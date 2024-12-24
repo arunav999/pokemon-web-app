@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBoxCss from "./SearchBox.module.css";
 
-const SearchBox = ({ state, onChange, onEscape }) => {
+const SearchBox = ({ state, onChange, onEscape, onSearch, disabled }) => {
   const { inputValue, isInvalid, error } = state;
 
   return (
@@ -34,7 +34,13 @@ const SearchBox = ({ state, onChange, onEscape }) => {
             {error && <p className={SearchBoxCss.error}>&#x2718; {error}</p>}
           </div>
 
-          <button className={SearchBoxCss}>Search</button>
+          <button
+            className={SearchBoxCss}
+            onClick={onSearch}
+            disabled={disabled}
+          >
+            Search
+          </button>
         </div>
       </div>
     </>

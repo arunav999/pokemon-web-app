@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Axios from "axios";
 import Header from "./Contents/Header";
 import SearchBox from "./Contents/SearchBox";
 import PokemonCard from "./Contents/PokemonCard";
@@ -9,6 +10,7 @@ const PokemonLogic = () => {
     isInvalid: false,
     pokeId: "",
     pokeName: "",
+    image: "",
     error: "",
   });
 
@@ -36,13 +38,6 @@ const PokemonLogic = () => {
       pokeName: setName,
       error: errorMessage,
     }));
-
-    // setState({
-    //   inputValue: value,
-    //   isInvalid: value !== "" && !pattern.test(value),
-    //   pokeId: setId,
-    //   pokeName: setName,
-    // });
   };
 
   const handleKeyDownEscape = (event) => {
@@ -55,6 +50,25 @@ const PokemonLogic = () => {
     }
   };
 
+  const { pokeId, pokeName, isInvalid, error } = state;
+
+  const searchPokemon = async () => {
+    try {
+      const response = await Axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${
+          (!isInvalid && pokeId) || pokeName
+        }`
+      );
+      console.log(response);
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        alert("Pokemon not found. Please check the name and try again.");
+      } else {
+        alert("An unexpected error occured. Please try again later.");
+      }
+    }
+  };
+
   return (
     <>
       <Header />
@@ -62,6 +76,8 @@ const PokemonLogic = () => {
         state={state}
         onChange={handleChange}
         onEscape={handleKeyDownEscape}
+        onSearch={searchPokemon}
+        disabled={isInvalid || error}
       />
       <PokemonCard state={state} />
     </>
