@@ -2,7 +2,19 @@ import React from "react";
 import PokeCard from "./PokemonCard.module.css";
 
 const PokemonCard = ({ state }) => {
-  const { pokeDataId, pokeDataName, image, type } = state;
+  const {
+    pokeDataId,
+    pokeDataName,
+    image,
+    type,
+    species,
+    hp,
+    attack,
+    defense,
+    specialAttack,
+    specialDefense,
+    speed,
+  } = state;
 
   return (
     <>
@@ -24,13 +36,22 @@ const PokemonCard = ({ state }) => {
                 <p>{pokeDataName}</p>
                 <div className={PokeCard.type}>
                   <p>{type}</p>
-                  <p>type 2</p>
+                  {/* <p>type 2</p> */}
                 </div>
               </div>
             </div>
 
             {/* CARD-BACK */}
-            <div className={PokeCard.cardBack}></div>
+            <div className={PokeCard.cardBack}>
+              <p>name: {pokeDataName}</p>
+              <p>species: {species}</p>
+              <p>hp: {hp}</p>
+              <p>attack: {attack}</p>
+              <p>defense: {defense}</p>
+              <p>special attack: {specialAttack}</p>
+              <p>special defense: {specialDefense}</p>
+              <p>speed: {speed}</p>
+            </div>
           </div>
         </div>
       </div>

@@ -14,6 +14,13 @@ const PokemonLogic = () => {
     pokeDataName: "",
     image: "",
     type: "",
+    species: "",
+    hp: "",
+    attack: "",
+    defense: "",
+    specialAttack: "",
+    specialDefense: "",
+    speed: "",
     error: "",
   });
 
@@ -71,6 +78,13 @@ const PokemonLogic = () => {
         pokeDataName: response.data.name,
         image: response.data.sprites.other.dream_world.front_default,
         type: response.data.types[0].type.name,
+        species: response.data.species.name,
+        hp: response.data.stats[0].base_stat,
+        attack: response.data.stats[1].base_stat,
+        defense: response.data.stats[2].base_stat,
+        specialAttack: response.data.stats[3].base_stat,
+        specialDefense: response.data.stats[4].base_stat,
+        speed: response.data.stats[5].base_stat,
       });
       console.log(response);
     } catch (error) {

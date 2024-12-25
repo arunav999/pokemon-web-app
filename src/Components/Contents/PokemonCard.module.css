@@ -5,6 +5,7 @@
   padding: 5.6rem;
   background-color: rgb(15, 75, 75);
   font-family: var(--secondary-font);
+  text-transform: capitalize;
 
   display: flex;
   align-items: center;
@@ -35,6 +36,7 @@
 /* CARD-FRONT */
 /* ******************** */
 .cardFront {
+  padding: 1.2rem;
   background-color: #6A2C70;
   color: #fff;
   display: flex;
@@ -71,6 +73,16 @@
 /* ******************** */
 /* CARD-FRONT CONTENT */
 /* ******************** */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.type {
+  display: flex;
+  gap: 2.2rem;
+}
 
 /* ******************** */
 /* CARD-BACK */
@@ -79,7 +91,9 @@
   background-color: #F08A5D;
   color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 1.6rem;
   border: 1rem solid #F08A5D;
   border-radius: 1rem;
   justify-content: center;
