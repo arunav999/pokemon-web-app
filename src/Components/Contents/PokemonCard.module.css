@@ -15,8 +15,8 @@
 /* CARD-CONTAINER */
 /* ******************** */
 .cardContainer {
-  height: 50rem;
-  width: 40rem;
+  height: 60rem;
+  width: 45rem;
   perspective: 100rem;
 }
 
@@ -40,12 +40,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 10px solid #6A2C70;
-  border-radius: 10px;
+  gap: 1.2rem;
+  border: 1rem solid #6A2C70;
+  border-radius: 1rem;
   justify-content: center;
-  font-size: 24px;
+  font-size: 2.4rem;
   transform: rotateY(0deg);
 }
+
+/* ******************** */
+/* IMAGE-CONTAINER */
+/* ******************** */
+.imgContain {
+  height: 42.4rem;
+  width: 42.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img {
+  height: 90%;
+  width: 90%;
+
+  object-fit: contain;
+}
+
+/* ******************** */
+/* CARD-FRONT CONTENT */
+/* ******************** */
 
 /* ******************** */
 /* CARD-BACK */
@@ -55,10 +80,10 @@
   color: #fff;
   display: flex;
   align-items: center;
-  border: 10px solid #F08A5D;
-  border-radius: 10px;
+  border: 1rem solid #F08A5D;
+  border-radius: 1rem;
   justify-content: center;
-  font-size: 24px;
+  font-size: 2.4rem;
   transform: rotateY(180deg);
 }
 
