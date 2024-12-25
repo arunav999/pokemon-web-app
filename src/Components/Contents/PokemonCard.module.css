@@ -1,94 +1,28 @@
 /* ******************** */
-/* CONTAINER-CARD */
+/* MAIN-CONTAINER */
 /* ******************** */
-/* .container {
-  padding: 1.8rem;
-  background-color: #faebd7;
-  font-size: 1.8rem;
-  text-transform: capitalize;
+.mainContainer {
+  padding: 5.6rem;
+  background-color: rgb(15, 75, 75);
   font-family: var(--secondary-font);
 
   display: flex;
+  align-items: center;
   justify-content: center;
-} */
+}
+
+/* ******************** */
+/* CARD-CONTAINER */
+/* ******************** */
+.cardContainer {
+  height: 50rem;
+  width: 40rem;
+  perspective: 100rem;
+}
 
 /* ******************** */
 /* CARD */
 /* ******************** */
-/* .card {
-  padding: 2.6rem;
-  width: 40%;
-  border-radius: 15px;
-  background-color: blanchedalmond;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 2.4rem;
-} */
-
-/* ******************** */
-/* CARD-IMAGE */
-/* ******************** */
-/* .imgContain {
-  height: 35.4rem;
-  width: 25.4rem;
-
-  border-radius: 15px;
-  background-color: aliceblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0px 0px 14px 5px rgba(0, 0, 0, 0.1);
-} */
-
-/* .img {
-  height: 80%;
-  width: 80%;
-
-  object-fit: contain;
-
-
-} */
-
-/* ******************** */
-/* CARD-CONTENT */
-/* ******************** */
-/* .content {
-  padding: 0.6rem;
-  width: 45%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-} */
-
-/* ******************** */
-/* CARD-TYPE */
-/* ******************** */
-/* .type {
-  padding: 0.2rem;
-
-  display: flex;
-  gap: 2.2rem;
-} */
-
-/* -------------------------- */
-.mainContainer {
-  padding: 5.6rem;
-  background-color: rgb(15, 75, 75);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cardContainer {
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-}
-
 .card {
   width: 100%;
   height: 100%;
@@ -97,22 +31,14 @@
   transition: transform 0.999s;
 }
 
-.cardContainer:hover .card {
-  transform: rotateY(180deg);
-}
-
-.cardFront,
-.cardBack {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
+/* ******************** */
+/* CARD-FRONT */
+/* ******************** */
 .cardFront {
   background-color: #6A2C70;
   color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   border: 10px solid #6A2C70;
   border-radius: 10px;
@@ -121,6 +47,9 @@
   transform: rotateY(0deg);
 }
 
+/* ******************** */
+/* CARD-BACK */
+/* ******************** */
 .cardBack {
   background-color: #F08A5D;
   color: #fff;
@@ -131,4 +60,19 @@
   justify-content: center;
   font-size: 24px;
   transform: rotateY(180deg);
+}
+
+/* ******************** */
+/* CARD-ROTATE */
+/* ******************** */
+.cardContainer:hover .card {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
 }

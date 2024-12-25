@@ -47,10 +47,11 @@ const PokemonLogic = () => {
 
   const handleKeyDownEscape = (event) => {
     if (event.key === "Escape") {
-      setState({
+      setState((prevState) => ({
+        ...prevState,
         inputValue: "",
         isInvalid: false,
-      });
+      }));
       event.target.blur();
     }
   };
