@@ -11,6 +11,7 @@ const PokemonLogic = () => {
     pokeId: "",
     pokeName: "",
     image: "",
+    type: "",
     error: "",
   });
 
@@ -61,6 +62,10 @@ const PokemonLogic = () => {
       );
       setState({
         inputValue: "",
+        pokeId: response.data.id,
+        pokeName: response.data.name,
+        image: response.data.sprites.other.dream_world.front_default,
+        type: response.data.types[0].type.name,
       });
       console.log(response);
     } catch (error) {

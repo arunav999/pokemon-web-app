@@ -5,6 +5,8 @@
   padding: 1.8rem;
   background-color: #faebd7;
   font-size: 1.8rem;
+  text-transform: capitalize;
+  font-family: var(--secondary-font);
 
   display: flex;
   justify-content: center;
@@ -48,7 +50,7 @@
 /* ******************** */
 /* CARD-TYPE */
 /* ******************** */
-.type{
+.type {
   padding: 0.2rem;
 
   display: flex;
