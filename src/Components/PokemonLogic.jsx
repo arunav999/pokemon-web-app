@@ -20,7 +20,7 @@ const PokemonLogic = () => {
   const handleChange = (event) => {
     const value = event.target.value;
     const pattern = /^([a-zA-Z ]+|[0-9]+)$/;
-    const setId = parseInt(event.target.value, 10);
+    const setId = parseInt(value, 10);
     const setName = value.toLowerCase().replace(/\s/g, "");
 
     let errorMessage = "";
@@ -31,6 +31,8 @@ const PokemonLogic = () => {
       errorMessage = "Special characters and symbols are not allowed.";
     } else if (!pattern.test(value)) {
       errorMessage = "Input should only be letters and numbers, not both.";
+    } else if (setId > 1000) {
+      errorMessage = "Number cannot be more than 1000";
     }
 
     setState((prevState) => ({

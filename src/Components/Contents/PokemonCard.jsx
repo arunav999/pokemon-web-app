@@ -17,7 +17,7 @@ const PokemonCard = ({ state }) => {
           </div>
 
           <div className={PokeCard.content}>
-            <p>{pokeDataId}</p>
+            <p>{`#${String(pokeDataId || "").padStart(4, "0")}`}</p>
             <p>{pokeDataName}</p>
             <div className={PokeCard.type}>
               <p>{type}</p>
