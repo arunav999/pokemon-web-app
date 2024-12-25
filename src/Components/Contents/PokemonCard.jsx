@@ -2,7 +2,7 @@ import React from "react";
 import PokeCard from "./PokemonCard.module.css";
 
 const PokemonCard = ({ state }) => {
-  const { pokeId, pokeName, image, type } = state;
+  const { pokeDataId, pokeDataName, image, type } = state;
 
   return (
     <>
@@ -11,14 +11,14 @@ const PokemonCard = ({ state }) => {
           <div className={PokeCard.imgContain}>
             <img
               src={image}
-              alt={`${pokeName} logo`}
+              alt={`${pokeDataName} logo`}
               className={PokeCard.img}
             />
           </div>
 
           <div className={PokeCard.content}>
-            <p>{pokeId}</p>
-            <p>{pokeName}</p>
+            <p>{pokeDataId}</p>
+            <p>{pokeDataName}</p>
             <div className={PokeCard.type}>
               <p>{type}</p>
               <p>type 2</p>
